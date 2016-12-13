@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PTrampert.ExeInvoke
 {
-    public class ExeInvoker
+    public class ExeInvoker : IExeInvoker
     {
         public Func<StreamReader, Task> StandardOutReader { get; set; }
 
