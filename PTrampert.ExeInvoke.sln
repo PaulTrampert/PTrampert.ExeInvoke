@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26009.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTrampert.ExeInvoke", "PTrampert.ExeInvoke\PTrampert.ExeInvoke.csproj", "{57D0EBB6-E4EA-4300-A87B-0464887B7E26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTrampert.ExeInvoke.Test", "PTrampert.ExeInvoke.Test\PTrampert.ExeInvoke.Test.csproj", "{8453BFE7-FD6E-40C5-A02D-027984CE1E85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{57D0EBB6-E4EA-4300-A87B-0464887B7E26}.Release|x64.Build.0 = Release|x64
 		{57D0EBB6-E4EA-4300-A87B-0464887B7E26}.Release|x86.ActiveCfg = Release|x86
 		{57D0EBB6-E4EA-4300-A87B-0464887B7E26}.Release|x86.Build.0 = Release|x86
+		{8453BFE7-FD6E-40C5-A02D-027984CE1E85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8453BFE7-FD6E-40C5-A02D-027984CE1E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8453BFE7-FD6E-40C5-A02D-027984CE1E85}.Debug|x64.ActiveCfg = Debug|x64
+		{8453BFE7-FD6E-40C5-A02D-027984CE1E85}.Debug|x64.Build.0 = Debug|x64
+		{8453BFE7-FD6E-40C5-A02D-027984CE1E85}.Debug|x86.ActiveCfg = Debug|x86
+		{8453BFE7-FD6E-40C5-A02D-027984CE1E85}.Debug|x86.Build.0 = Debug|x86
+		{8453BFE7-FD6E-40C5-A02D-027984CE1E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8453BFE7-FD6E-40C5-A02D-027984CE1E85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8453BFE7-FD6E-40C5-A02D-027984CE1E85}.Release|x64.ActiveCfg = Release|x64
+		{8453BFE7-FD6E-40C5-A02D-027984CE1E85}.Release|x64.Build.0 = Release|x64
+		{8453BFE7-FD6E-40C5-A02D-027984CE1E85}.Release|x86.ActiveCfg = Release|x86
+		{8453BFE7-FD6E-40C5-A02D-027984CE1E85}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
