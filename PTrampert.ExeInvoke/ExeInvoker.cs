@@ -7,16 +7,34 @@ using System.Threading.Tasks;
 
 namespace PTrampert.ExeInvoke
 {
+    /// <summary>
+    /// <see cref="IExeInvoker"/>
+    /// </summary>
     public class ExeInvoker : IExeInvoker
     {
+        /// <summary>
+        /// Inherited from <see cref="IExeInvoker"/>
+        /// </summary>
         public Func<StreamReader, Task> StandardOutReader { get; set; }
 
+        /// <summary>
+        /// Inherited from <see cref="IExeInvoker"/>
+        /// </summary>
         public Func<StreamReader, Task> StandardErrReader { get; set; }
 
+        /// <summary>
+        /// Inherited from <see cref="IExeInvoker"/>
+        /// </summary>
         public IDictionary<string, string> EnvironmentVariables { get; set; }
 
+        /// <summary>
+        /// Inherited from <see cref="IExeInvoker"/>
+        /// </summary>
         public string WorkingDirectory { get; set; }
 
+        /// <summary>
+        /// Inherited from <see cref="IExeInvoker"/>
+        /// </summary>
         public async Task Invoke(string exe, params string[] args)
         {
             var invocation = new ProcessStartInfo(exe, string.Join(" ", args));
