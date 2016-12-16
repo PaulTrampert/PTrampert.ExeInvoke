@@ -15,51 +15,31 @@ namespace PTrampert.ExeInvoke
         /// <summary>
         /// Inherited from <see cref="IExeInvoker"/>
         /// </summary>
-        public Func<StreamReader, Task> StandardOutReader { get; set; }
-
-        /// <summary>
-        /// Inherited from <see cref="IExeInvoker"/>
-        /// </summary>
-        public Func<StreamReader, Task> StandardErrReader { get; set; }
-
-        /// <summary>
-        /// Inherited from <see cref="IExeInvoker"/>
-        /// </summary>
-        public IDictionary<string, string> EnvironmentVariables { get; set; }
-
-        /// <summary>
-        /// Inherited from <see cref="IExeInvoker"/>
-        /// </summary>
-        public string WorkingDirectory { get; set; }
-
-        /// <summary>
-        /// Inherited from <see cref="IExeInvoker"/>
-        /// </summary>
-        public async Task Invoke(string exe, params string[] args)
+        public async Task Invoke(string exe, string[] args = null, ExeEnvironment env = null)
         {
-            var invocation = new ProcessStartInfo(exe, string.Join(" ", args));
+            var invocation = new ProcessStartInfo(exe, string.Join(" ", args ?? new string[0]));
             invocation.RedirectStandardError = true;
             invocation.RedirectStandardOutput = true;
-            foreach(var variable in EnvironmentVariables ?? new Dictionary<string, string>())
+            foreach(var variable in env?.EnvironmentVariables ?? new Dictionary<string, string>())
             {
                 invocation.Environment.Add(variable.Key, variable.Value);
             }
-            if (!string.IsNullOrWhiteSpace(WorkingDirectory))
+            if (!string.IsNullOrWhiteSpace(env?.WorkingDirectory))
             {
-                invocation.WorkingDirectory = WorkingDirectory;
+                invocation.WorkingDirectory = env?.WorkingDirectory;
             }
             using (var process = Process.Start(invocation))
             {
                 var readerTasks = new List<Task>();
                 var stdOut = process.StandardOutput;
                 var stdErr = process.StandardError;
-                if (StandardOutReader != null)
+                if (env?.StandardOutReader != null)
                 {
-                    readerTasks.Add(StandardOutReader(stdOut));
+                    readerTasks.Add(env.StandardOutReader(stdOut));
                 }
-                if (StandardErrReader != null)
+                if (env?.StandardErrReader != null)
                 {
-                    readerTasks.Add(StandardErrReader(stdErr));
+                    readerTasks.Add(env.StandardErrReader(stdErr));
                 }
                 await Task.Run(() => process.WaitForExit());
                 await Task.WhenAll(readerTasks);
