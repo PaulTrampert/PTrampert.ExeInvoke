@@ -4,6 +4,5 @@ Class and interface to wrap what I consider to be a slightly clunky native proce
 ### Basic Usage
 ```C#
 var invoker = new ExeInvoker();
-invoker.StandardOutReader = async stdOut => await stdOut.ReadToEndAsync();
 await invoker.Invoke(someExecuteable);
 ```
