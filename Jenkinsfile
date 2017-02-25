@@ -2,7 +2,7 @@ nugetPipeline {
 	packProjects = ['PTrampert.ExeInvoke']
 	testProjects = ['PTrampert.ExeInvoke.Test']
 	isOpenSource = true
-	nugetCredentialsId = "nugetApiKey"
-	nugetServer = "https://api.nuget.org/v3/index.json"
-	symbolServer = "https://nuget.smbsrc.net/"
+	nugetCredentialsId = "progetApiKey"
+	nugetServer = "https://proget.ptrampert.com/nuget/Default"
+	symbolServer = "https://proget.ptrampert.com/symbols/Default"
 }
