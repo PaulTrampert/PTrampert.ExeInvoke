@@ -63,5 +63,16 @@ namespace PTrampert.ExeInvoke.Test
             };
             await invoker.Invoke(BatFile);
         }
+
+        [Fact]
+        public async Task CanStartGit()
+        {
+            var env = new ExeEnvironment
+            {
+                StandardOutReader = async stdOut => Assert.Matches(@"\d+\.\d+\.\d+-.*", await stdOut.ReadToEndAsync()),
+                WorkingDirectory = Path.GetDirectoryName(typeof(ExeInvokerTests).GetTypeInfo().Assembly.CodeBase.Replace("file:///", ""))
+            };
+            await invoker.Invoke("git.exe", new[] { "describe --tags" }, env: env);
+        }
     }
 }
