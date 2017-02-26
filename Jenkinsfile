@@ -1,7 +1,10 @@
 nugetPipeline {
 	packProjects = ['PTrampert.ExeInvoke']
 	testProjects = ['PTrampert.ExeInvoke.Test']
+	deployNupkg = true
+	nugetServer = "https://api.nuget.org/v3/index.json"
+	nugetCredentialsId = "nugetApiKey"
 	deploySymbols = true
-	symbolsCredentialsId = "progetApiKey"
-	symbolServer = "https://proget.ptrampert.com/nuget/Default"
+	symbolsCredentialsId = "nugetApiKey"
+	symbolServer = "https://nuget.smbsrc.net/"
 }
